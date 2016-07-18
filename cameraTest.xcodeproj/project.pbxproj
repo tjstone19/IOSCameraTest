@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C2A399F11D39E01400B1A079 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A399F01D39E01400B1A079 /* AppDelegate.swift */; };
-		C2A399F31D39E01400B1A079 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A399F21D39E01400B1A079 /* ViewController.swift */; };
+		C2A399F31D39E01400B1A079 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A399F21D39E01400B1A079 /* CameraViewController.swift */; };
 		C2A399F61D39E01400B1A079 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2A399F41D39E01400B1A079 /* Main.storyboard */; };
 		C2A399F81D39E01400B1A079 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2A399F71D39E01400B1A079 /* Assets.xcassets */; };
 		C2A399FB1D39E01400B1A079 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2A399F91D39E01400B1A079 /* LaunchScreen.storyboard */; };
@@ -36,7 +36,7 @@
 /* Begin PBXFileReference section */
 		C2A399ED1D39E01400B1A079 /* cameraTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cameraTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A399F01D39E01400B1A079 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C2A399F21D39E01400B1A079 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C2A399F21D39E01400B1A079 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		C2A399F51D39E01400B1A079 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C2A399F71D39E01400B1A079 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2A399FA1D39E01400B1A079 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				C2A399F01D39E01400B1A079 /* AppDelegate.swift */,
-				C2A399F21D39E01400B1A079 /* ViewController.swift */,
+				C2A399F21D39E01400B1A079 /* CameraViewController.swift */,
 				C2A399F41D39E01400B1A079 /* Main.storyboard */,
 				C2A399F71D39E01400B1A079 /* Assets.xcassets */,
 				C2A399F91D39E01400B1A079 /* LaunchScreen.storyboard */,
@@ -193,6 +193,7 @@
 				TargetAttributes = {
 					C2A399EC1D39E01400B1A079 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 96U96CPNST;
 					};
 					C2A39A001D39E01400B1A079 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -256,7 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2A399F31D39E01400B1A079 /* ViewController.swift in Sources */,
+				C2A399F31D39E01400B1A079 /* CameraViewController.swift in Sources */,
 				C2A399F11D39E01400B1A079 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,10 +402,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = cameraTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.intranotions.cameraTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -412,10 +416,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = cameraTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.intranotions.cameraTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -484,6 +491,7 @@
 				C2A39A171D39E01400B1A079 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C2A39A181D39E01400B1A079 /* Build configuration list for PBXNativeTarget "cameraTestTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +500,7 @@
 				C2A39A1A1D39E01400B1A079 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C2A39A1B1D39E01400B1A079 /* Build configuration list for PBXNativeTarget "cameraTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +509,7 @@
 				C2A39A1D1D39E01400B1A079 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
