@@ -62,14 +62,11 @@ class CameraViewController: UIViewController {
         
         do {
             try captureSession.addInput(AVCaptureDeviceInput(device: backCamera))
-
-            
         } catch {
             print(error)
         }
         
         captureSession.sessionPreset = AVCaptureSessionPresetPhoto
-
         captureSession.startRunning()
         
         stillImageOutput.outputSettings = [AVVideoCodecKey:AVVideoCodecJPEG]
@@ -101,14 +98,5 @@ class CameraViewController: UIViewController {
             }
         }
     }
-
-    
-    // Call back method for detecting screen taps.
-    // The camera takes a picture when the screen touched.
-    override func touchesBegan(touches: Set<UITouch>,
-                                 withEvent event: UIEvent?) {
-        
-    }
-   
 }
 
