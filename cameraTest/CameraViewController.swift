@@ -13,6 +13,9 @@ class CameraViewController: UIViewController {
     let captureSession = AVCaptureSession()
     var previewLayer : AVCaptureVideoPreviewLayer?
     
+    // picture captured from camera
+    let stillImageOutput = AVCaptureStillImageOutput()
+    
     // back camera
     var backCamera : AVCaptureDevice?
     
@@ -58,17 +61,53 @@ class CameraViewController: UIViewController {
         
         do {
             try captureSession.addInput(AVCaptureDeviceInput(device: backCamera))
+
             
         } catch {
             print(error)
         }
         
-        
-        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        
-        self.view.layer.addSublayer(previewLayer!)
-        previewLayer?.frame = self.view.layer.frame
+        captureSession.sessionPreset = AVCaptureSessionPresetPhoto
+
         captureSession.startRunning()
+        
+        stillImageOutput.outputSettings = [AVVideoCodecKey:AVVideoCodecJPEG]
+        
+        if captureSession.canAddOutput(stillImageOutput) {
+            captureSession.addOutput(stillImageOutput)
+        }
+        
+        if let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession) {
+            previewLayer.bounds = view.bounds
+            previewLayer.position = CGPointMake(view.bounds.midX, view.bounds.midY)
+            previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+            
+            let cameraPreview = UIView(frame: CGRectMake(0.0, 0.0, view.bounds.size.width, view.bounds.size.height))
+            cameraPreview.layer.addSublayer(previewLayer)
+            cameraPreview.addGestureRecognizer(UITapGestureRecognizer(target: self, action:#selector(CameraViewController.saveToCamera(_:))))
+            
+            view.addSubview(cameraPreview)
+        }
+
     }
+    
+    func saveToCamera(sender: UITapGestureRecognizer) {
+        if let videoConnection = stillImageOutput.connectionWithMediaType(AVMediaTypeVideo) {
+            stillImageOutput.captureStillImageAsynchronouslyFromConnection(videoConnection) {
+                (imageDataSampleBuffer, error) -> Void in
+                let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
+                UIImageWriteToSavedPhotosAlbum(UIImage(data: imageData)!, nil, nil, nil)
+            }
+        }
+    }
+
+    
+    // Call back method for detecting screen taps.
+    // The camera takes a picture when the screen touched.
+    override func touchesBegan(touches: Set<UITouch>,
+                                 withEvent event: UIEvent?) {
+        
+    }
+   
 }
 
